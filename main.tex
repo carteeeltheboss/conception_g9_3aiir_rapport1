@@ -3,6 +3,8 @@
 \usepackage{textpos} 
 \usepackage{graphicx} 
 \usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,calc}
 
 \usetheme{Boadilla}
 \usecolortheme{default}
@@ -60,6 +62,10 @@
         \item \hyperlink{fig1}{Figure 1: Example Image}
         \item \hyperlink{fig2}{Figure 2: Another Example}
         \item \hyperlink{fig3}{Figure 3: Yet Another Example}
+        \item \hyperlink{fig4}{Illustration des Événements dans le système}
+        \item \hyperlink{fig5}{Illustration des Opérations}
+        \item \hyperlink{fig6}{Illustration de la Synchronisation}
+        \item \hyperlink{fig7}{Illustration des Résultats}
     \end{itemize}
 \end{frame}
 
@@ -316,13 +322,205 @@
 
 \end{frame}
 
-
 \section{Présentation du modèle conceptuel du traitement analytique}
-\begin{frame}{Modèle conceptuel}
-    Description du modèle conceptuel...
+
+\begin{frame}{MCTA C'est quoi ?}
+    \textbf{En modélisation informatique, notamment dans la méthode Merise}, le MCTA fait référence au 
+    \textbf{Modèle Conceptuel des Traitements et des Activités}. C'est une étape clé pour décrire comment les processus et les traitements fonctionnent dans un système d'information.
+    
+    \vspace{1em}
+    \textbf{Rôle du MCTA dans Merise :}
+    \begin{itemize}
+        \item Le MCTA intervient après le Modèle Conceptuel des Données (MCD).
+        \item Il se concentre sur les activités et traitements nécessaires pour manipuler les données.
+        \item L'objectif est de décrire les flux, interactions et règles de gestion sans s'intéresser à l'aspect technique.
+    \end{itemize}
+    
+    \vspace{1em}
+    \textbf{Diagrammes associés :}
+    \begin{itemize}
+        \item \textbf{Diagrammes d'activités} pour montrer les enchaînements.
+        \item \textbf{Modèles conceptuels de flux (MCF)} pour représenter les flux de données entre traitements.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{idk if we should keep this '-'}
+
+    
+    \textbf{Différence avec le Modèle Logique des Traitements (MLT) :}
+    \begin{itemize}
+        \item \textbf{MCTA} : Vision conceptuelle, indépendante de l'implémentation technique.
+        \item \textbf{MLT} : Vision plus proche de l'implémentation informatique (scripts, programmes).
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Événements dans le MCTA}
+    \textbf{Événements :} Eux qui déclenchent les activités /ou traitements dans le système.
+    \begin{itemize}
+        \item Correspondent aux stimuli externes ou internes qui démarrent un processus.
+        \item Représenté par un ovale avec le nom et/ou description à l'intérieur 
+        \item \textbf{Exemples :}
+        \begin{itemize}
+            \item Un client passe une commande.
+            \item Un paiement est reçu.
+            \item Une alerte est générée en cas de problème.
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+    \label{fig4}
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+    \draw[fill=none, draw=black] (0,0) ellipse (2cm and 1cm); % Dessiner un ovale avec des dimensions réduites et couleur invisible
+    \node at (0, 0) {Événement}; % Placer le texte "Événement" au centre de l'ovale
+\end{tikzpicture}
+        \caption{Illustration des Événements dans le système}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Opérations dans le MCTA}
+    \textbf{Opérations :} Actions spécifiques réalisées par le système pour transformer les données.
+    \begin{itemize}
+        \item Correspondent aux unités élémentaires d'un traitement.
+        \item \textbf{Exemples :}
+        \begin{itemize}
+            \item Calculer le total d'une commande.
+            \item Mettre à jour le stock.
+            \item Valider une transaction.
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+    \label{fig5}
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+  \node (op) [rectangle, draw, minimum width=4cm, minimum height=1cm] {Opération};
+  \node (taches) [rectangle, draw, minimum width=4cm, minimum height=1cm, below of=op] {Tâches};
+  \node (etat1) [rectangle, draw, minimum width=2cm, minimum height=1cm, below of=taches, anchor=west] {Etat 1};
+  \node (etat2) [rectangle, draw, minimum width=2cm, minimum height=1cm, below of=taches, anchor=east] {Etat 2};
+\end{tikzpicture}
+        \caption{Illustration des Opérations}
+    \end{figure}
 \end{frame}
 
 
+\begin{frame}{Synchronisation dans le MCTA}
+    \textbf{Synchronisation :} Régule l'ordre d'exécution des traitements.
+    \begin{itemize}
+        \item Assure que les traitements se déroulent dans un ordre cohérent.
+        \item \textbf{Exemples :}
+        \begin{itemize}
+            \item Un paiement doit être validé avant l'expédition d'une commande.
+            \item Plusieurs traitements doivent s'exécuter simultanément.
+            \item Une activité attend la fin d'autres activités avant de se déclencher.
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+    \label{fig6}
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+  \node (trap) [trapezium, draw, minimum width=2cm, minimum height=1cm, trapezium left angle=-75, trapezium right angle=-75, node contents={Sync}] {};
+  \draw[<-] (trap.south) ++(0,-0.5) -- ++(0,0.5);  
+  %\draw[<-] (trap.north west) -- ++(0,0.5);
+  \draw[<-] ($(trap.north west)!0.1!(trap.north east)$) -- ++(-0.6,0.5);
+  \draw[<-] ($(trap.north west)!0.2!(trap.north east)$) -- ++(-0.4,0.5);
+  \draw[<-] ($(trap.north west)!0.3!(trap.north east)$) -- ++(-0.2,0.5);
+  \draw[<-] ($(trap.north west)!0.4!(trap.north east)$) -- ++(0,0.5);
+  \node at ($(trap.north west)!0.5!(trap.north) + (0.5,0.2)$) {$\dots$}; 
+  \draw[<-] (trap.north east) -- ++(0.5,0.5); 
+\end{tikzpicture}
+        \caption{Illustration de la Synchronisation}
+    \end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{Synchronisation dans le MCTA}
+
+\begin{alertblock}{Remarque :}
+\footnotesize Les règles représentant la synchronisation peuvent être composées et on obtient aisément la forme générale :
+\[P = \sum_{i=1}^{n} \left( \prod_{j=1}^{m_i} L_{i,j} \right)\]
+où: 
+\begin{itemize}
+    \item $P$ est le résultat de sortie.
+    \item $L_{i,j}$ est un prédicat logique (un évènement arbitraire).
+    \item $\sum_{i=1}^{n} m_i$ est le nombre total d'événements.
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Un exemple de Sync:}
+
+\begin{examples}
+\ex a ET b \\
+\footnotesize Pour obtenir cette expression à partir de la forme générale on fixe les paramètres suivants :
+
+* $n = 1$ (une seule clause)
+* $m_1 = 2$ (deux littéraux dans la clause)
+* $L_{1,1} = a$
+* $L_{1,2} = b$
+
+En substituant ces valeurs dans la forme générale, on obtient :
+
+\[\sum_{i=1}^{1} \left( \prod_{j=1}^{2} L_{i,j} \right) = \prod_{j=1}^{2} L_{1,j} = L_{1,1} \land L_{1,2} = a \land b\]
+\end{examples}
+    
+\end{frame}
+
+\begin{frame}{Un autre exemple de Sync composé}
+\begin{examples}
+\ex a OU b ET c \\
+\footnotesize Pour obtenir cette expression à partir de la forme générale 
+\[\sum_{i=1}^{n} \left( \prod_{j=1}^{m_i} L_{i,j} \right),\] 
+on fixe les paramètres suivants :
+
+* $n = 2$ (deux clauses)
+* $m_1 = 1$ (un littéral dans la première clause)
+* $m_2 = 2$ (deux littéraux dans la deuxième clause)
+* $L_{1,1} = a$
+* $L_{2,1} = b$
+* $L_{2,2} = c$
+
+En substituant ces valeurs dans la forme générale, on obtient :
+
+\begin{align*}
+\sum_{i=1}^{2} \left( \prod_{j=1}^{m_i} L_{i,j} \right) &= \left( \prod_{j=1}^{1} L_{1,j} \right) \lor \left( \prod_{j=1}^{2} L_{2,j} \right) \\
+&= L_{1,1} \lor (L_{2,1} \land L_{2,2}) \\
+&= a \lor (b \land c) \\
+&= a \lor (b \land c)
+\end{align*}
+\end{examples}
+\end{frame}
+
+
+\begin{frame}{Résultats dans le MCTA}
+    \textbf{Résultats :} Les sorties des activités ou traitements.
+    \begin{itemize}
+        \item Correspondent aux effets observables ou données produites après une opération.
+        \item Représenté par un ovale avec le nom et/ou description à l'intérieur
+        \item \textbf{Exemples :}
+        \begin{itemize}
+            \item Une facture générée pour un client.
+            \item Un email de confirmation envoyé.
+            \item Une mise à jour dans une base de données.
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+    \begin{figure}
+        \centering
+        \label{fig7}
+        \begin{tikzpicture}
+    \draw[fill=none, draw=black] (0,0) ellipse (2cm and 1cm); % Dessiner un ovale avec des dimensions réduites et couleur invisible
+    \node at (0, 0) {Résultats}; % Placer le texte "Événement" au centre de l'ovale
+\end{tikzpicture}
+        \caption{Illustration des Résultats}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Représentation Final du MCTA}
+i swear its 1:07AM i cant do this anymore i gtg to sleep
+\end{frame}
 
 \section{Conception du projet selon les règles de Merise 2}
 \begin{frame}{Conception selon Merise 2}
