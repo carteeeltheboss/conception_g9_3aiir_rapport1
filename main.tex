@@ -55,17 +55,17 @@
 \frametitle{Table of Contents}
 \tableofcontents
 \end{frame}
-
 \begin{frame}
     \frametitle{List of Figures}
     \begin{itemize}
-        \item \hyperlink{fig1}{Figure 1: Example Image}
-        \item \hyperlink{fig2}{Figure 2: Another Example}
-        \item \hyperlink{fig3}{Figure 3: Yet Another Example}
+    
         \item \hyperlink{fig4}{Illustration des Événements dans le système}
         \item \hyperlink{fig5}{Illustration des Opérations}
         \item \hyperlink{fig6}{Illustration de la Synchronisation}
         \item \hyperlink{fig7}{Illustration des Résultats}
+        \item \hyperlink{fig8}{MCD Réalisé}
+        \item \hyperlink{fig9}{MCT Réalisé}
+        \item \hyperlink{fig10}{MCTA Réalisé}
     \end{itemize}
 \end{frame}
 
@@ -95,7 +95,7 @@
 \section{Résumé du cours}
 \begin{frame}{La Conception d’un Système d’Information (SI)}
     \begin{itemize}
-        \item \textbf{Nécessité stratégique} : Répondre aux besoins actuels et évoluer avec l’organisation.
+        \item \textbf{Nécessité stratégique} : Répondre aux besoins actuels and évoluer with l'organisation.
         \item \textbf{Objectifs} :
         \begin{itemize}
             \item Optimiser les opérations courantes.
@@ -186,32 +186,6 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Figure 1: Example Image}
-    \label{fig1}
-    \begin{figure}
-        \includegraphics[width=0.8\textwidth]{logo}
-        \caption{This is an example image.}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Figure 2: Another Example}
-    \label{fig2}
-    \begin{figure}
-        \includegraphics[width=0.8\textwidth]{logo}
-        \caption{This is another example image.}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Figure 3: Yet Another Example}
-    \label{fig3}
-    \begin{figure}
-        \includegraphics[width=0.8\textwidth]{logo}
-        \caption{Yet another example image.}
-    \end{figure}
-\end{frame}
 
 
 \section{Comparaison entre Merise 1 et Merise 2}
@@ -301,25 +275,24 @@
     \item Peut être lourde pour des projets de petite envergure.
 \end{itemize}
 \end{frame}
-
 \begin{frame}{Comparaison entre MERISE 1 et MERISE 2}
+
 \begin{table}[]
+\footnotesize % Reduced font size for better fit
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|} % Adjusted column widths
 \hline
-\textbf{Critères}             & \textbf{MERISE 1}                                                   & \textbf{MERISE 2}                                                    \\ \hline
-\textbf{Orientation}          & Centrée sur les flux de données et traitements                     & Intègre une approche orientée objet                                  \\ \hline
-\textbf{Technologie ciblée}   & Bases de données relationnelles classiques                         & Bases relationnelles et orientées objet                              \\ \hline
-\textbf{Modélisation}         & Modèles conceptuels, logiques et physiques classiques (MCD, MLD)   & Modèles enrichis (cycles de vie des objets et interactions dynamiques) \\ \hline
-\textbf{Flexibilité}          & Rigide, séquentielle                                               & Souple, itérative                                                    \\ \hline
-\textbf{Adaptabilité}         & Convient aux projets bien définis et peu évolutifs                 & Convient aux projets évolutifs et modernes                           \\ \hline
-\textbf{Complexité}           & Plus simple                                                       & Plus complexe, mais mieux adapté aux systèmes modernes               \\ \hline
-\textbf{Popularité actuelle}  & Rarement utilisé aujourd'hui                                       & Moins populaire que UML et les approches agiles                      \\ \hline
+\textbf{Critères} & \textbf{MERISE 1} & \textbf{MERISE 2} \\ \hline
+\textbf{Orientation} & Centrée sur les flux de données et traitements & Intègre une approche orientée objet \\ \hline
+\textbf{Technologie ciblée} & Bases de données relationnelles classiques & Bases relationnelles et orientées objet \\ \hline
+\textbf{Modélisation} & Modèles conceptuels, logiques et physiques classiques (MCD, MLD) & Modèles enrichis (cycles de vie des objets et interactions dynamiques) \\ \hline
+\textbf{Flexibilité} & Rigide, séquentielle & Souple, itérative \\ \hline
+\textbf{Adaptabilité} & Convient aux projets bien définis et peu évolutifs & Convient aux projets évolutifs et modernes \\ \hline
+\textbf{Complexité} & Plus simple & Plus complexe, mais mieux adapté aux systèmes modernes \\ \hline
+\textbf{Popularité actuelle} & Rarement utilisé aujourd'hui & Moins populaire que UML et les approches agiles \\ \hline
 \end{tabular}%
 }
 \end{table}
-\end{frame}
-
 \end{frame}
 
 \section{Présentation du modèle conceptuel du traitement analytique}
@@ -345,7 +318,7 @@
 
 \end{frame}
 
-\begin{frame}{idk if we should keep this '-'}
+\begin{frame}{Pourquoi MCTA et non pas autre modèle ?}
 
     
     \textbf{Différence avec le Modèle Logique des Traitements (MLT) :}
@@ -380,32 +353,6 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Opérations dans le MCTA}
-    \textbf{Opérations :} Actions spécifiques réalisées par le système pour transformer les données.
-    \begin{itemize}
-        \item Correspondent aux unités élémentaires d'un traitement.
-        \item \textbf{Exemples :}
-        \begin{itemize}
-            \item Calculer le total d'une commande.
-            \item Mettre à jour le stock.
-            \item Valider une transaction.
-        \end{itemize}
-    \end{itemize}
-    \vspace{1em}
-    \label{fig5}
-    \begin{figure}
-        \centering
-        \begin{tikzpicture}
-  \node (op) [rectangle, draw, minimum width=4cm, minimum height=1cm] {Opération};
-  \node (taches) [rectangle, draw, minimum width=4cm, minimum height=1cm, below of=op] {Tâches};
-  \node (etat1) [rectangle, draw, minimum width=2cm, minimum height=1cm, below of=taches, anchor=west] {Etat 1};
-  \node (etat2) [rectangle, draw, minimum width=2cm, minimum height=1cm, below of=taches, anchor=east] {Etat 2};
-\end{tikzpicture}
-        \caption{Illustration des Opérations}
-    \end{figure}
-\end{frame}
-
-
 \begin{frame}{Synchronisation dans le MCTA}
     \textbf{Synchronisation :} Régule l'ordre d'exécution des traitements.
     \begin{itemize}
@@ -423,8 +370,7 @@
         \centering
         \begin{tikzpicture}
   \node (trap) [trapezium, draw, minimum width=2cm, minimum height=1cm, trapezium left angle=-75, trapezium right angle=-75, node contents={Sync}] {};
-  \draw[<-] (trap.south) ++(0,-0.5) -- ++(0,0.5);  
-  %\draw[<-] (trap.north west) -- ++(0,0.5);
+  \draw[<-] (trap.south) ++(0,-0.5) -- ++(0,0.5); 
   \draw[<-] ($(trap.north west)!0.1!(trap.north east)$) -- ++(-0.6,0.5);
   \draw[<-] ($(trap.north west)!0.2!(trap.north east)$) -- ++(-0.4,0.5);
   \draw[<-] ($(trap.north west)!0.3!(trap.north east)$) -- ++(-0.2,0.5);
@@ -494,6 +440,31 @@ En substituant ces valeurs dans la forme générale, on obtient :
 \end{frame}
 
 
+\begin{frame}{Opérations dans le MCTA}
+    \textbf{Opérations :} Actions spécifiques réalisées par le système pour transformer les données.
+    \begin{itemize}
+        \item Correspondent aux unités élémentaires d'un traitement.
+        \item \textbf{Exemples :}
+        \begin{itemize}
+            \item Calculer le total d'une commande.
+            \item Mettre à jour le stock.
+            \item Valider une transaction.
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+    \label{fig5}
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+  \node (op) [rectangle, draw, minimum width=4cm, minimum height=1cm] {Opération};
+  \node (taches) [rectangle, draw, minimum width=4cm, minimum height=1cm, below of=op] {Tâches};
+  \node (etat1) [rectangle, draw, minimum width=2cm, minimum height=1cm, below of=taches, anchor=west] {Etat 1};
+  \node (etat2) [rectangle, draw, minimum width=2cm, minimum height=1cm, below of=taches, anchor=east] {Etat 2};
+\end{tikzpicture}
+        \caption{Illustration des Opérations}
+    \end{figure}
+\end{frame}
+
 \begin{frame}{Résultats dans le MCTA}
     \textbf{Résultats :} Les sorties des activités ou traitements.
     \begin{itemize}
@@ -518,14 +489,74 @@ En substituant ces valeurs dans la forme générale, on obtient :
     \end{figure}
 \end{frame}
 
-\begin{frame}{Représentation Final du MCTA}
-i swear its 1:07AM i cant do this anymore i gtg to sleep
+\section{Conception du projet selon les règles de Merise 2}
+
+\begin{frame}{Elaboration du MCD}
+    \centering
+    \hypertarget{fig8}{\includegraphics[width=\textwidth, height=0.8\textheight, keepaspectratio]{mcd.png}}
+    \caption{Fig. Schema du MCD}
 \end{frame}
 
-\section{Conception du projet selon les règles de Merise 2}
-\begin{frame}{Conception selon Merise 2}
-    Explication des règles et de leur application au projet.
+
+
+\begin{frame}{Elaboration du MCT}
+    Schema du mct
+    
+    \label{fig9}
 \end{frame}
+
+\begin{frame}{Elaboration du MCTA}
+    Schema du mcta
+    
+    \label{fig10}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Conclusion - Aperçu}
+    \textbf{À travers cette étude, nous avons exploré :}
+    \begin{itemize}
+        \item La conception d'une application de gestion de projets informatiques.
+        \item L'application de la méthodologie MERISE 2.
+    \end{itemize}
+    \vspace{0.5cm}
+    \textbf{Points clés :}
+    \begin{itemize}
+        \item Modélisation de systèmes complexes et évolutifs.
+        \item Utilisation des modèles : MCD, MCT, MLD, MCTA.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Points forts de l'étude}
+    \textbf{Approfondissements :}
+    \begin{itemize}
+        \item Concepts approfondis : événement, opération, synchronisation.
+        \item Formalisation précise des processus métier grâce au MCTA.
+    \end{itemize}
+    \vspace{0.5cm}
+    \textbf{Comparaison MERISE 1 vs MERISE 2 :}
+    \begin{itemize}
+        \item Avantages en termes de flexibilité et d'adaptation.
+        \item Nécessité d'une expertise solide pour la mise en œuvre.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusion finale}
+    \textbf{Résumé :}
+    \begin{itemize}
+        \item MERISE 2, une méthodologie rigoureuse pour la gestion de projets.
+        \item Facilite la compréhension des besoins et la communication.
+        \item Offre un cadre structuré pour modéliser les processus.
+    \end{itemize}
+    \vspace{0.5cm}
+    \textbf{Impact :}
+    \begin{itemize}
+        \item Pertinence démontrée pour la conception d'applications complexes.
+        \item Une base solide pour les projets informatiques évolutifs.
+    \end{itemize}
+\end{frame}
+
+
 
 \section{Bibliographies et Références}
 \begin{frame}{Bibliographies}
@@ -533,7 +564,7 @@ i swear its 1:07AM i cant do this anymore i gtg to sleep
 
 \bibitem{bts_doc}
 BTS CGO 2A P10 -\textit{ Organisation du Système d’Informations Fiche MCT, MCTA, MOT et MOTA.} Editions d'Organisation. 
-\href{https://example.com/merise}{[Lien]} 
+\href{https://bit.ly/3D5q0Gw}{[Lien]} 
 
 \bibitem{merise_miseaniveau}
 Pr. S.EL MOUMNI -\textit{ Conception des systèmes d’information.} Cours mise à niveau. 
@@ -542,47 +573,21 @@ Pr. S.EL MOUMNI -\textit{ Conception des systèmes d’information.} Cours mise 
 \end{thebibliography}
 \end{frame}
 
-\begin{frame}
-\frametitle{Sample frame title}
-
-In this slide, some important text will be
-\alert{highlighted} because it's important.
-Please, don't abuse it.
-
-\begin{block}{Remark}
-Sample text
-\end{block}
-
-\begin{alertblock}{Important theorem}
-Sample text in red box
-\end{alertblock}
-
-\begin{examples}
-Sample text in green box. The title of the block is ``Examples".
-\end{examples}
+\begin{frame}{Remerciements}
+    \centering
+    \Huge{\textbf{Remerciements}} \\[1cm]
+    
+    \Large{Je tiens à remercier toutes les personnes suivantes pour leur soutien et leurs contributions :}
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item Mon professeur pour ses conseils et son accompagnement du projet.
+        \item Mes collègues et camarades pour leur collaboration et leur soutien.
+        \item Ma famille et mes amis pour leur encouragement constant.
+    \end{itemize}
+    \vspace{1cm}
+    
 \end{frame}
 
-
-
-\begin{frame}
-\frametitle{Two-column slide}
-
-\begin{columns}
-
-\column{0.5\textwidth}
-This is a text in first column.
-$$E=mc^2$$
-\begin{itemize}
-\item First item
-\item Second item
-\end{itemize}
-
-\column{0.5\textwidth}
-This text will be in the second column
-and on a second thought, this is a nice-looking
-layout in some cases.
-\end{columns}
-\end{frame}
 
 
 \end{document}
